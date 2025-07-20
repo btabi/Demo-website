@@ -1,0 +1,74 @@
+/* styles.css */
+/* Reset & base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: 'Arial', sans-serif;
+  background: #fdfdfd;
+}
+
+/* Centered container */
+.container {
+  text-align: center;
+}
+
+/* Base text styling */
+.animated-text {
+  font-size: 2.5rem;
+  line-height: 1.2;
+}
+
+/* Hidden by default */
+.pink,
+.blue {
+  display: inline-block;
+  opacity: 0;
+}
+
+/* Fade-in-up keyframes */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply colors and staggered animations */
+.pink {
+  color: #ff69b4; /* pink */
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+.blue {
+  color: #20b2aa; /* sea blue */
+  animation: fadeInUp 1s ease-out 0.5s forwards;
+}
+
+/* Pulse-on-hover keyframes */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  }
+  50% {
+    transform: scale(1.05);
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* When you hover over the text it gently pulses */
+.animated-text:hover .pink,
+.animated-text:hover .blue {
+  animation: pulse 1s ease-in-out infinite alternate;
+}
